@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap of Joy Rentals - Terms & Conditions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application transforms the linear legal document into an interactive, tabbed interface. A top navigation bar allows users to switch between four key sections: Indemnity, Safety, Rules, and Equipment. This non-linear structure breaks down information into digestible chunks, making it less intimidating and easier to navigate than a single scrolling page. The goal is to improve readability and ensure the user understands their responsibilities by highlighting critical information with icons and distinct visual treatments. -->
+    <!-- Visualization & Content Choices: The report is purely textual, so no data visualizations (charts) are used. Instead, information is presented using structured HTML and iconography. Section 1 (Indemnity): Presented as clear text with key clauses highlighted to ensure legal clarity, now enhanced with an LLM feature to simplify the text. Section 2 (Safety): Uses a checklist format and a prominent call-out for the supervision rule, now enhanced with an LLM feature to generate safety scenarios. Goal: Emphasize action items and comprehension. Section 3 (Usage Rules): Presented in a 'Do's and Don'ts' layout. Section 4 (Equipment): Uses an icon-driven list for scannability. All interactions are handled with vanilla JS for tab switching and dynamic content updates. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-button.active {
+            border-color: #f59e0b;
+            color: #f59e0b;
+            background-color: #fffbeb;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #f59e0b;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+</head>
+<body class="bg-amber-50">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-amber-800">Leap of Joy Rentals</h1>
+            <p class="text-lg text-stone-600 mt-2">Terms & Conditions of Hire</p>
+        </header>
+
+        <main class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+            <p class="mb-6 text-stone-700 text-center">We believe fun should always come first, but to keep the excitement safe for everyone, we must ensure all parties understand and agree to the following rules. Please review each section carefully.</p>
+
+            <nav class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-8">
+                <button data-target="indemnity" class="tab-button text-sm md:text-base w-full text-stone-700 font-semibold p-3 border-b-4 border-transparent rounded-lg hover:bg-amber-100 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>🛡️</span> Indemnity
+                </button>
+                <button data-target="safety" class="tab-button text-sm md:text-base w-full text-stone-700 font-semibold p-3 border-b-4 border-transparent rounded-lg hover:bg-amber-100 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>👀</span> Safety & Supervision
+                </button>
+                <button data-target="rules" class="tab-button text-sm md:text-base w-full text-stone-700 font-semibold p-3 border-b-4 border-transparent rounded-lg hover:bg-amber-100 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>📜</span> Usage Rules
+                </button>
+                <button data-target="equipment" class="tab-button text-sm md:text-base w-full text-stone-700 font-semibold p-3 border-b-4 border-transparent rounded-lg hover:bg-amber-100 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>🔌</span> Equipment Care
+                </button>
+            </nav>
+
+            <div id="content-container">
+                <section id="indemnity" class="content-section">
+                    <h2 class="text-2xl font-bold text-amber-700 mb-4">1. Indemnity Waiver</h2>
+                    <div class="space-y-4 text-stone-600">
+                        <p>This section outlines the legal responsibilities and liabilities for both the company and you, the Hirer. Understanding this waiver is crucial for a safe and enjoyable rental experience.</p>
+                        <div class="bg-stone-100 p-4 rounded-lg border-l-4 border-stone-300">
+                            <p id="company-declaration-text"><strong class="text-stone-800">Company Declaration:</strong> We, <strong class="text-amber-800">RBHSolutions PTY LTD trading as Leap of Joy Rentals</strong> (including the Agent, owners, employees, and agents), do not accept any responsibility or liability for any <strong class="text-red-700">harm, injury, loss, or damage</strong> arising from or caused by the use, setup, or dismantling of the inflatable units.</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-300">
+                            <p><strong class="text-blue-800">Hirer's Acknowledgement:</strong> You (the person or entity hiring the inflatable unit, "the Hirer") acknowledge that there are <strong class="text-blue-900">inherent risks and dangers</strong> when hiring and using an inflatable unit.</p>
+                        </div>
+                        <div id="indemnity-core-text" class="bg-amber-50 p-6 rounded-lg border-2 border-amber-400 shadow-inner">
+                            <h3 class="font-bold text-lg text-amber-900 mb-2">Agreement to Waive & Indemnify (Original Legal Text)</h3>
+                            <p class="text-amber-800">The Hirer hereby <strong class="uppercase">waives any claim or action</strong> against <strong class="font-semibold">RBHSolutions PTY LTD trading as Leap of Joy Rentals</strong> and agrees to <strong class="uppercase">indemnify</strong> and hold the Company harmless against any action brought on by any third party for any harm, injury, loss, or damage arising or caused through the use, setup, or dismantling of the inflatable units during the hire period.</p>
+                        </div>
+
+                        <button id="clarify-jargon-btn" class="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-amber-500 text-white font-semibold rounded-lg hover:bg-amber-600 transition-colors duration-200">
+                            ✨ Clarify Legal Jargon
+                        </button>
+                        
+                        <div id="clarity-output" class="mt-4 p-4 bg-lime-50 border-l-4 border-lime-400 rounded-lg hidden">
+                            <h4 class="font-bold text-lime-800 mb-2">Simplified Meaning:</h4>
+                            <p id="clarity-text" class="text-lime-700 italic"></p>
+                        </div>
+                         <div id="clarity-loading" class="mt-4 hidden p-4 flex items-center justify-center gap-3">
+                            <div class="loading-spinner"></div>
+                            <span class="text-stone-500">Simplifying the legal text...</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="safety" class="content-section">
+                    <h2 class="text-2xl font-bold text-amber-700 mb-4">2. Supervision and Safety</h2>
+                     <p class="mb-6 text-stone-600">Your most important job is to ensure a safe environment. Please follow these critical safety rules without exception.</p>
+                    <div class="bg-red-100 border-l-4 border-red-500 text-red-800 p-4 rounded-lg mb-6">
+                        <p class="font-bold text-xl">Adult supervision is required at all times.</p>
+                        <p>By agreeing to these terms, you confirm a responsible adult (18+) will actively supervise the inflatable unit for the entire duration of use.</p>
+                    </div>
+                    <h3 class="text-xl font-semibold text-stone-800 mb-3">Safe Setup Checklist:</h3>
+                    <ul class="space-y-3 text-stone-700">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-600 font-bold text-xl">✓</span>
+                            <div>
+                                <strong class="block">Clear the Area:</strong> Ensure the setup location is suitable, safe, and completely free from obstacles.
+                                <small class="text-stone-500">Check for rocks, paved walkways, benches, sharp objects, or toys.</small>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-600 font-bold text-xl">✓</span>
+                            <div>
+                                <strong class="block">Check Overhead:</strong> Make sure there are no overhanging trees, power lines, or structural overhangs.
+                            </div>
+                        </li>
+                         <li class="flex items-start gap-3">
+                            <span class="text-green-600 font-bold text-xl">✓</span>
+                            <div>
+                                <strong class="block">Stable Ground:</strong> The inflatable must be set up on a reasonably flat and stable surface.
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <button id="scenario-generator-btn" class="w-full mt-6 flex items-center justify-center gap-2 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                        ✨ Generate Safety Scenario
+                    </button>
+                    
+                    <div id="scenario-output" class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-lg hidden">
+                        <h4 class="font-bold text-yellow-800 mb-2">Safety Scenario:</h4>
+                        <p id="scenario-text" class="text-yellow-700 italic"></p>
+                    </div>
+                    <div id="scenario-loading" class="mt-4 hidden p-4 flex items-center justify-center gap-3">
+                        <div class="loading-spinner"></div>
+                        <span class="text-stone-500">Generating scenario...</span>
+                    </div>
+
+                </section>
+
+                <section id="rules" class="content-section">
+                    <h2 class="text-2xl font-bold text-amber-700 mb-4">3. Usage Rules</h2>
+                    <p class="mb-6 text-stone-600">To prevent injuries and damage to the equipment, these usage rules are strict and non-negotiable.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-green-50 border-2 border-green-300 p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold text-green-800 mb-3 flex items-center gap-3">✅ Permitted Use</h3>
+                            <div class="text-center">
+                                <p class="text-6xl mb-4">👧👦</p>
+                                <p class="text-green-700 font-semibold text-lg">Children aged 12 years and younger are welcome to use the inflatables.</p>
+                            </div>
+                        </div>
+                        <div class="bg-red-50 border-2 border-red-300 p-6 rounded-xl">
+                             <h3 class="text-2xl font-bold text-red-800 mb-3 flex items-center gap-3">❌ Prohibited Use</h3>
+                             <div class="text-center">
+                                <p class="text-6xl mb-4">🚫👨👩</p>
+                                <p class="text-red-700 font-semibold text-lg">Absolutely NO ADULTS (persons over 12 years of age) are permitted on the inflatable units.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="equipment" class="content-section">
+                    <h2 class="text-2xl font-bold text-amber-700 mb-4">4. Equipment Responsibility</h2>
+                    <p class="mb-6 text-stone-600">The inflatable and motor are provided in good working order. It is the Hirer's responsibility to keep them that way during the hire period.</p>
+                    <ul class="space-y-4 text-stone-700">
+                        <li class="flex items-center gap-4 bg-stone-100 p-4 rounded-lg">
+                            <span class="text-3xl">⚡</span>
+                            <div>
+                                <strong class="text-stone-800">Power Supply:</strong> The Agent is not responsible for providing a suitable power source for the motor/blower unit. You must ensure a stable power connection is available.
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 bg-stone-100 p-4 rounded-lg">
+                            <span class="text-3xl">🌧️</span>
+                            <div>
+                                <strong class="text-stone-800">Weather Protection:</strong> The motor/blower must not be left exposed to rain or harsh weather. Please cover it or move it to a sheltered location if it starts to rain.
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 bg-red-100 p-4 rounded-lg border-l-4 border-red-400">
+                            <span class="text-3xl">🛠️</span>
+                            <div>
+                                <strong class="text-red-800">Damage Liability:</strong> The Hirer will be liable for any and all damage (e.g., punctures, tears, water damage) to the inflatable or motor. All costs for repair or replacement will be payable by the Hirer.
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-button');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            const clarifyBtn = document.getElementById('clarify-jargon-btn');
+            const clarityOutputDiv = document.getElementById('clarity-output');
+            const clarityTextP = document.getElementById('clarity-text');
+            const clarityLoadingDiv = document.getElementById('clarity-loading');
+            const indemnityCoreText = document.getElementById('indemnity-core-text').querySelector('p').textContent.trim();
+
+            const scenarioBtn = document.getElementById('scenario-generator-btn');
+            const scenarioOutputDiv = document.getElementById('scenario-output');
+            const scenarioTextP = document.getElementById('scenario-text');
+            const scenarioLoadingDiv = document.getElementById('scenario-loading');
+
+            const apiKey = "";
+            const apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=" + apiKey;
+            
+            async function fetchWithExponentialBackoff(fetcher, maxRetries = 5) {
+                for (let attempt = 0; attempt < maxRetries; attempt++) {
+                    try {
+                        const response = await fetcher();
+                        if (response.ok) {
+                            return response;
+                        } else if (response.status === 429 || response.status >= 500) {
+                            if (attempt === maxRetries - 1) throw new Error(`API failed after ${maxRetries} attempts.`);
+                            const delay = Math.pow(2, attempt) * 1000 + Math.random() * 1000;
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                        } else {
+                            const errorBody = await response.text();
+                            throw new Error(`API error: ${response.status} - ${errorBody}`);
+                        }
+                    } catch (error) {
+                        if (attempt === maxRetries - 1) throw error;
+                        const delay = Math.pow(2, attempt) * 1000 + Math.random() * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    }
+                }
+                throw new Error("Exceeded maximum retries.");
+            }
+
+            async function callGeminiApi(userQuery, systemPrompt) {
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+
+                const fetcher = () => fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const response = await fetchWithExponentialBackoff(fetcher);
+                const result = await response.json();
+                
+                return result.candidates?.[0]?.content?.parts?.[0]?.text || "Error: Could not generate content.";
+            }
+
+            // --- Tab Switching Logic ---
+            function switchTab(targetId) {
+                tabs.forEach(tab => {
+                    if (tab.dataset.target === targetId) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
+                    }
+                });
+
+                contentSections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    switchTab(tab.dataset.target);
+                });
+            });
+
+            switchTab('indemnity');
+
+
+            // --- Feature 1: Clarify Legal Jargon ---
+            clarifyBtn.addEventListener('click', async () => {
+                clarifyBtn.disabled = true;
+                clarityOutputDiv.classList.add('hidden');
+                clarityLoadingDiv.classList.remove('hidden');
+
+                const userQuery = indemnityCoreText;
+                const systemPrompt = "You are an expert legal simplifier. Your task is to rewrite the provided indemnity waiver in clear, simple, and direct language suitable for a general audience, while preserving the original legal intent regarding waiving claims and indemnification. State the key takeaway first.";
+
+                try {
+                    const simpleText = await callGeminiApi(userQuery, systemPrompt);
+                    clarityTextP.textContent = simpleText;
+                    clarityOutputDiv.classList.remove('hidden');
+                } catch (error) {
+                    clarityTextP.textContent = `Error clarifying: ${error.message}`;
+                    clarityOutputDiv.classList.remove('hidden');
+                } finally {
+                    clarityLoadingDiv.classList.add('hidden');
+                    clarifyBtn.disabled = false;
+                }
+            });
+
+            // --- Feature 2: Generate Safety Scenario ---
+            scenarioBtn.addEventListener('click', async () => {
+                scenarioBtn.disabled = true;
+                scenarioOutputDiv.classList.add('hidden');
+                scenarioLoadingDiv.classList.remove('hidden');
+
+                const userQuery = "Generate a single, realistic 'What If' safety scenario (e.g., 'What if a child falls off...') related to the use of inflatable rental units. The scenario should be one concise paragraph and focus on the Hirer's responsibility to prevent it and react to the situation.";
+                const systemPrompt = "You are a safety training expert for children's events. Provide a brief, engaging, single-paragraph safety scenario to reinforce supervision rules.";
+
+                try {
+                    const scenarioText = await callGeminiApi(userQuery, systemPrompt);
+                    scenarioTextP.textContent = scenarioText;
+                    scenarioOutputDiv.classList.remove('hidden');
+                } catch (error) {
+                    scenarioTextP.textContent = `Error generating scenario: ${error.message}`;
+                    scenarioOutputDiv.classList.remove('hidden');
+                } finally {
+                    scenarioLoadingDiv.classList.add('hidden');
+                    scenarioBtn.disabled = false;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
